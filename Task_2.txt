@@ -1,0 +1,19 @@
+import speechrecognition as sr
+import webbrowser as wb
+import pyttsx3 as py
+
+py.speak("Hello Nishanth.")
+print("What can I do for You\n\n")
+py.speak("What can I do for You")
+print("Listening...", end='')
+x = sr.recognizer()
+with sr.Microphone() as source:
+	audio = x.listen(source)
+data = r.recognize_google(audio)
+
+if ("date" in data) and (("run" in data) or ("execute" in data) or ("open" in data)):
+	wb.open("http://192.168.43.152/cgi-bin/task2.py?x=date")
+elif(("calender" in data) or ("cal" in data)) and (("run" in data) or ("execute" in data) or ("open" in data)):
+	wb.open("http://192.168.43.152/cgi-bin/task2.py?x=cal")
+else:
+	print("That is not available")
